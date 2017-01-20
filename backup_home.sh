@@ -1,6 +1,6 @@
 #!/bin/bash
 #Purpose = Backup of Important Data
-
+#User Variables
 # This Command will add date in Backup File Name.
 TIME=`date +%b-%d-%y%s`
 
@@ -18,6 +18,7 @@ COMPRESS=$1
 declare -A array_compress
 array_compress=([-gz]='gz' [-bz2]='bz2' [-7z]='7z' [-zip]='zip' [-lzma]='lzma' [-xz]='xz')
 
+#START
 # Function
 # test content of a file
 test_content(){
@@ -35,7 +36,7 @@ test_content(){
 	fi
 }
 
-#START
+
 if [ -z $COMPRESS ]; then
 	COMPRESS=-gz	# Default compress is gzip
 elif [ -z ${array_compress[$COMPRESS]} ]; then
